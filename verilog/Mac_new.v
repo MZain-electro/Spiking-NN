@@ -66,12 +66,12 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
     
     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta1(s2[107:90],s1[203:187],s1[186:170]);
      adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta2(s2[89:72],s1[169:153],s1[152:136]);
-     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[71:54],s1[135:119],s1[118:103]);
+     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[71:54],s1[135:119],s1[118:102]);
   // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta2(s2[53:36],s1[101:85],s1[84:68]);
    // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[35:18],s1[67:51],s1[50:34]);
-    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta4(s2[53:36],s1[102:86],s1[85:69]);
-    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[68:52],s1[51:35]);
-   adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta6(s2[17:0],s1[34:18],s1[17:0]);
+    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta4(s2[53:36],s1[101:85],s1[84:68]);
+    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[68:51],s1[50:34]);
+   adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta6(s2[17:0],s1[33:17],s1[16:0]);
 
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta7(s3[56:38],s2[107:90],s2[89:72]);
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta8(s3[37:19],s2[71:54],s2[53:36]);
