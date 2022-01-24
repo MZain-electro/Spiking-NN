@@ -31,7 +31,7 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
     reg [(S*16)-1:0] weights;
      wire [(S*16)-1:0]p; //output wire of multiplexer 16 bits
      
-    reg [15:0] sumOut;//dont know the use
+    reg [20:0] sumOut;//dont know the use
     reg [135:0] s1reg;     //for pipelining but how?
     wire [20:0] sum;//dont know the use
    
@@ -70,7 +70,7 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
   // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta2(s2[53:36],s1[101:85],s1[84:68]);
    // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[35:18],s1[67:51],s1[50:34]);
     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta4(s2[53:36],s1[101:85],s1[84:68]);
-    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[68:51],s1[50:34]);
+    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[67:51],s1[50:34]);
    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta6(s2[17:0],s1[33:17],s1[16:0]);
 
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta7(s3[56:38],s2[107:90],s2[89:72]);
@@ -78,9 +78,10 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta9(s3[18:0],s2[35:18],s2[17:0]);
 
     adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta10(s4[39:20],s3[56:38],s3[37:19]);
-    adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta11(s4[19:0],s3[18:0],p[15:0]);//some error?
+   // assign w_CAT_2 = {r_SIGNED, r_UNSIGNED};
+    adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta11(s4[19:0],s3[18:0],{3'b0,p[15:0]});//some error?
      
-      adder #(.OUT_WIDTH(21), .INP_WIDTH(20)) adderInsta12(sum,s4[39:20],s4[19:0]);
+    adder #(.OUT_WIDTH(21), .INP_WIDTH(20)) adderInsta12(sum,s4[39:20],s4[19:0]);
     
 
 endmodule
