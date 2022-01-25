@@ -31,7 +31,7 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
     reg [(S*16)-1:0] weights;
      wire [(S*16)-1:0]p; //output wire of multiplexer 16 bits
      
-    reg [15:0] sumOut;//dont know the use
+    reg [20:0] sumOut;//dont know the use
     reg [135:0] s1reg;     //for pipelining but how?
     wire [20:0] sum;//dont know the use
    
@@ -54,33 +54,40 @@ module mac(sumOut,clk, pixelsIn, weightsIn);
     genvar multGen, addGen;
     generate
        for(multGen=0; multGen<=24 ;multGen=multGen+1)
-       //mult insta is instantiation of the module name. 
+       begin
+       //mult insta is instantiation of the module name.
+       
         mul #(.OUT_WIDTH(16), .INP_WIDTH(16)) multInsta( p[((S*16)-1-16*multGen):((S*16)-1-16*multGen-15)],pixels[(S-1)-1*multGen], weights[((S*16)-1-16*multGen):((S*16)-1-16*multGen-15)]);      
+  end
     endgenerate
+    
     
     generate
         for(addGen=0; addGen<=11; addGen=addGen+1)
         //Outputs of 12 adders each of 17 bit: 12*17 =>203:0
+        begin
         adder #(.OUT_WIDTH(17), .INP_WIDTH(16)) addInsta(s1[(203-17*addGen):(203-17*addGen-16)]  ,p[((S*16)-1-2*16*addGen):((S*16)-1-16*2*addGen-15)],p[((S*16)-1-16*(2*addGen+1)):((S*16)-1-16*(2*addGen+1)-15)]); 
+   end
     endgenerate
     
     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta1(s2[107:90],s1[203:187],s1[186:170]);
      adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta2(s2[89:72],s1[169:153],s1[152:136]);
-     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[71:54],s1[135:119],s1[118:103]);
+     adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[71:54],s1[135:119],s1[118:102]);
   // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta2(s2[53:36],s1[101:85],s1[84:68]);
    // adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta3(s2[35:18],s1[67:51],s1[50:34]);
-    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta4(s2[53:36],s1[102:86],s1[85:69]);
-    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[68:52],s1[51:35]);
-   adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta6(s2[17:0],s1[34:18],s1[17:0]);
+    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta4(s2[53:36],s1[101:85],s1[84:68]);
+    adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta5(s2[35:18],s1[67:51],s1[50:34]);
+   adder #(.OUT_WIDTH(18), .INP_WIDTH(17)) adderInsta6(s2[17:0],s1[33:17],s1[16:0]);
 
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta7(s3[56:38],s2[107:90],s2[89:72]);
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta8(s3[37:19],s2[71:54],s2[53:36]);
     adder #(.OUT_WIDTH(19), .INP_WIDTH(18)) adderInsta9(s3[18:0],s2[35:18],s2[17:0]);
 
     adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta10(s4[39:20],s3[56:38],s3[37:19]);
-    adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta11(s4[19:0],s3[18:0],p[15:0]);//some error?
+   // assign w_CAT_2 = {r_SIGNED, r_UNSIGNED};
+    adder #(.OUT_WIDTH(20), .INP_WIDTH(19)) adderInsta11(s4[19:0],s3[18:0],{3'b0,p[15:0]});//some error?
      
-      adder #(.OUT_WIDTH(21), .INP_WIDTH(20)) adderInsta12(sum,s4[39:20],s4[19:0]);
+    adder #(.OUT_WIDTH(21), .INP_WIDTH(20)) adderInsta12(sum,s4[39:20],s4[19:0]);
     
 
 endmodule
