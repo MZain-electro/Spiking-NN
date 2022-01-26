@@ -21,31 +21,25 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module mac_tb();
     parameter half_cycle = 20;
     reg [1:0] data_pixels[24:0]; //40 data_pixels each pixel with 128 bitwdith
     reg [15:0] data_weights[24:0];
-    wire [19:0] sum;
+  wire [20:0] sum;
     
     reg [399:0] w;
     reg [24:0] p; 
     reg [7:0] count;
     reg clk;
     wire clk2;
-    
     integer outFile1;
          integer i;
   integer Theoretical_sum=0;
-    
     assign #2 clk2 = clk;
-    
     mac macInsta(sum,clk,p,w);
-
-    
     initial
     begin
-        data_weights[0] = 16'd1;   data_pixels[0] = 1'd1;  
+      data_weights[0] = 16'd1;   data_pixels[0] = 1'd1;  
       data_weights[1] = 16'd1;  data_pixels[1] = 1'd1;  
       data_weights[2] = 16'd5;  data_pixels[2] = 1'd1;  
       data_weights[3] = 16'd1; data_pixels[3] = 1'd1;  
@@ -81,29 +75,43 @@ module mac_tb();
         //#1 $display("value of data_weights sum is %d",data_weights[i]);
     end
     #1 $display("value of Theoretical sum is %d",Theoretical_sum);
+      
+      
+      for (i=0; i<25; i=i+1)
+    begin
+      w[i+:16]=data_weights[i];
+      $display("value of weight %d is %d",i,w[i+:16]);
+      p[i]=data_weights[i];
+      $display("value of pixel %d is %d",i,p[i]);
     end
+
+    end//end of first begin
     
-    always #half_cycle clk= !clk;
-    
+    always #half_cycle clk= !clk;//single statement
     //write to file
     always @(posedge clk)
     if (count >0)
-        $fdisplay(outFile1, "%h",sum);
+        #1000
+      $display("value of sum is %d",sum);
         
     always @(posedge clk2)
     begin
-        p= data_pixels[count];
-      #1 $display("value of data_pixels is %d",p);
-        w= data_weights[count];
-      #1 $display("value of weights is %d",w);
+      // p= data_pixels[count];
+       // w= data_weights[count];
         count = count+1;
-        if (count==25)
+      if (count==2)
         begin
-          #10 $display("value of sum_out is %d",sum);
             $fclose(outFile1);
             $finish;
         end
     end
- 
+  
+initial begin
+  $dumpfile("dump.vcd");
+  $dumpvars;
+  #10000
+  $finish;
+end
+
   
 endmodule
