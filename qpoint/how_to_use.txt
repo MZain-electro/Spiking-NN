@@ -1,0 +1,20 @@
+The First function is called as qpoint(-0.5,0,7,'bin')
+The Second fucntion is called as verilog_format(a,0,7)
+
+This function converts decimal (base 10) numbers to fixed-point Qa.b format where "a" is the number of bits to the left of the binary point not including the sign bit, and "b" is the number of bits to the right of the decimal point. The output format is either binary or hexadecimal (hex is the default). The function is called using the command "dec2q(x,a,b,format)" where x is the decimal input (which can either be a scalar or a vector), "a" is the number of bits to the left of the binary point not including the sign bit, and "b" is the number of bits to the right of the decimal point, and format is either 'bin' or 'hex' (format is optional, 'hex' is the default).
+For example, the following command converts the decimal number 0.5 to Q0.15 format (which is also called Q15) with the output expressed as a hex number:
+>> dec2q(0.5,0,15)
+ans =
+4000
+The following command converts the decimal number -0.5 to Q0.15 with the output expressed as a binary number:
+>> dec2q(-0.5,0,15,'bin')
+ans =
+1100000000000000
+
+The function can also convert a vector of decimal numbers to Q0.15 format:
+>> dec2q([-1 -0.5 0 0.5],0,15)
+ans =
+8000
+C000
+0000
+4000
