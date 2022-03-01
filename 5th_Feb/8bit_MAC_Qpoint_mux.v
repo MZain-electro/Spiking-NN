@@ -5,5 +5,5 @@ parameter INP_WIDTH= 1;
   input signed [INP_WIDTH-1:0] W;
   input I;
   output signed [OUT_WIDTH-1:0] T;
-  assign T=I?W:16'b0;
+  assign T=I?W:8'b0;
 endmodule
