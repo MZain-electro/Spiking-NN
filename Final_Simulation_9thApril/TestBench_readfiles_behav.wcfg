@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TestBench_readfiles_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TestBench_readfiles" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="41553fs"></ZoomStartTime>
+      <ZoomEndTime time="185154fs"></ZoomEndTime>
+      <Cursor1Time time="95000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="235"></NameColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/TestBench_readfiles/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/pulse" type="logic">
+      <obj_property name="ElementShortName">pulse</obj_property>
+      <obj_property name="ObjectShortName">pulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/spike" type="array">
+      <obj_property name="ElementShortName">spike[1:0]</obj_property>
+      <obj_property name="ObjectShortName">spike[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/spk_out" type="logic">
+      <obj_property name="ElementShortName">spk_out</obj_property>
+      <obj_property name="ObjectShortName">spk_out</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/spike_inner" type="logic">
+      <obj_property name="ElementShortName">spike_inner</obj_property>
+      <obj_property name="ObjectShortName">spike_inner</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/mac_out" type="array">
+      <obj_property name="ElementShortName">mac_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mac_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/add_out" type="array">
+      <obj_property name="ElementShortName">add_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">add_out[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/sub_out" type="array">
+      <obj_property name="ElementShortName">sub_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sub_out[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/Mux_out" type="array">
+      <obj_property name="ElementShortName">Mux_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Mux_out[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/shift" type="array">
+      <obj_property name="ElementShortName">shift[7:0]</obj_property>
+      <obj_property name="ObjectShortName">shift[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/threshold" type="array">
+      <obj_property name="ElementShortName">threshold[7:0]</obj_property>
+      <obj_property name="ObjectShortName">threshold[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/R" type="logic">
+      <obj_property name="ElementShortName">R</obj_property>
+      <obj_property name="ObjectShortName">R</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/Comp/d_flip_flop/Din" type="array">
+      <obj_property name="ElementShortName">Din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Din[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/Comp/d_flip_flop/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/nchu/acc_out" type="array">
+      <obj_property name="ElementShortName">acc_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_out[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#0000A0</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/spk_reg/Din" type="logic">
+      <obj_property name="ElementShortName">Din</obj_property>
+      <obj_property name="ObjectShortName">Din</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TestBench_readfiles/layer_one_and_2/layer1_combined/\genblk1[0].MAC_NCHU_Layer1 /NCHU_1_L2/spk_reg/Q" type="logic">
+      <obj_property name="ElementShortName">Q</obj_property>
+      <obj_property name="ObjectShortName">Q</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+</wave_config>
